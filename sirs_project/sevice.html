@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        
+   
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 8%;
+    background:#fff;
+    position:relative;
+}
+
+.logo img{
+    width:150px;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.nav-links li{
+    position:relative;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#222;
+    font-weight:500;
+}
+
+.btn{
+    background:#de3c14;
+    color:#fff;
+    padding:10px 20px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.menu-toggle{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* Dropdown */
+
+.dropdown-menu{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#fff;
+    list-style:none;
+    min-width:220px;
+    box-shadow:0 5px 10px rgba(0,0,0,.15);
+}
+
+.dropdown:hover .dropdown-menu{
+    display:block;
+}
+
+.dropdown-menu li a{
+    display:block;
+    padding:12px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .btn{
+        display:none;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:#fff;
+        flex-direction:column;
+        display:none;
+        padding:20px 0;
+        box-shadow:0 5px 10px rgba(0,0,0,.1);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links li{
+        width:100%;
+        text-align:center;
+    }
+
+    .nav-links li a{
+        display:block;
+        padding:12px;
+    }
+
+    .dropdown-menu{
+        position:static;
+        display:none;
+        box-shadow:none;
+        background:#f5f5f5;
+    }
+
+    .dropdown:hover .dropdown-menu{
+        display:block;
+    }
+}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1a1a1a;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0b1f4d, #124e8c);
+            color: #fff;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .hero h3 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 850px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        h4 {
+            text-align: center;
+            font-size: 36px;
+            margin: 70px 0 40px;
+            color: #0b1f4d;
+        }
+
+        h5 {
+            text-align: center;
+            font-size: 20px;
+            margin: 70px 0 40px;
+            color: #0b1f4d;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding-bottom: 70px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: .2s;
+        }
+
+        .card:hover {
+            /* transform: translateY(-12px); */
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .18);
+        }
+
+        .card img {
+            width: 100%;
+            height: 230px;
+            object-fit: contain;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+
+        .btn:hover {
+            background: #0b1f4d;
+        }
+
+
+        @media(max-width:768px) {
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h3 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            h4 {
+                font-size: 30px;
+            }
+
+            .card img {
+                height: 200px;
+            }
+
+        }
+
+        h4 {
+            text-align: center;
+            font-size: 32px;
+            color: #0b2c5f;
+            margin: 50px 0 30px;
+        }
+
+        .box {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+
+        .content {
+            background: #fff;
+            width: 350px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: 0.3s;
+        }
+
+        .content:hover {
+            transform: translateY(-5px);
+        }
+
+        .content-title {
+            font-size: 24px;
+            color: #0b2c5f;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .content-item {
+            padding-left: 20px;
+        }
+
+        .content-item li {
+            margin: 10px 0;
+            color: #555;
+            font-size: 17px;
+        }
+
+        footer {
+            background: #0b2c5f;
+            color: #fff;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 40px 8%;
+            gap: 30px;
+        }
+
+        .footer-box {
+            width: 300px;
+        }
+
+        .footer-box h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .footer-box h3 i {
+            margin-left: 8px;
+        }
+
+        .footer-box p {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .footer-box p i {
+            margin-right: 10px;
+            color: #ff9800;
+        }
+
+        .footer-box .fa-brands {
+            font-size: 22px;
+            margin-right: 15px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .footer-box .fa-brands:hover {
+            color: #ff9800;
+        }
+
+        .copyright {
+            background: #071b3a;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 15px;
+        }
+
+        @media(max-width:768px) {
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .footer-box {
+                width: 100%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>  
+  <nav class="navbar">
+    <div class="logo">
+        <img src="C:\Users\Welcome\Pictures\Screenshots\Screenshot 2026-07-21 000406.png" alt="Logo">
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+        <li><a href="project.html">Home</a></li>
+        <li><a href="prs.html">About</a></li>
+        <li><a href="sevice.html">Services</a></li>
+
+        <li class="dropdown">
+            <a href="#">
+                Products
+                <i class="bi bi-chevron-down"></i>
+            </a>
+
+            <ul class="dropdown-menu">
+                <li><a href="Reliable Traffic & Safety Products..html">Traffic Safety Products</a></li>
+                <li><a href="container.html">Industrial Safety Products</a></li>
+            </ul>
+        </li>
+
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <a href="#" class="btn">Download Brochure</a>
+</nav>
+
+
+
+  <!-- hero section -->
+    <div class="hero sec">
+        <h3> Complete Road & Industrial Safety Solutions</h3>
+        <p>We provide innovative road safety systems, industrial safety equipment, traffic management solutions, and
+            installation services to create safer roads and workplaces.</p>
+    </div>
+
+
+    <!-- services  -->
+    <h4>Our Services!</h4>
+    <div class="container">
+        <div class="card">
+            <img class="card-img-top" src="rsafety.jpg" alt="Road Safety Solutions">
+            <div class="card-body">
+                <h5 class="card-title">Road Safety Solutions</h5>
+                <p class="card-text">Crash barriers, guardrails, road studs, delineators</p>
+
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="traffic.jpg" alt="Traffic Management">
+            <div class="card-body">
+                <h5 class="card-title">Traffic Management</h5>
+                <p class="card-text">Sign boards, signals, VMS, traffic calming systems</p>
+
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="safe.jpg" alt="Industrial Safety">
+            <div class="card-body">
+                <h5 class="card-title">Industrial Safety</h5>
+                <p class="card-text">PPE, machine guarding, workplace safety solutions</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="fire.jpg" alt="Fire Safety">
+            <div class="card-body">
+                <h5 class="card-title">Fire Safety</h5>
+                <p class="card-text">Fire extinguishers, alarms, emergency equipment</p>
+
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="instalation.jpg" alt="Installation & Maintenance">
+            <div class="card-body">
+                <h5 class="card-title">Installation & Maintenance</h5>
+                <p class="card-text">Professional installation and AMC services</p>
+
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="smart.jpg" alt="Smart Safety Systems">
+            <div class="card-body">
+                <h5 class="card-title">Smart Safety Systems</h5>
+                <p class="card-text">CCTV, ANPR, AI traffic monitoring</p>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- featured -->
+    <h4>Featured Solutions!</h4>
+    <div class="box">
+        <div class="content">
+            <div class="content-body">
+                <h5 class="content-title">Road Safety</h5>
+                <ul class="content-item">
+                    <li>W-Beam Crash Barriers</li>
+                    <li>Guard Rails</li>
+                    <li>Solar Road Studs</li>
+                    <li>Reflective Sign Boards</li>
+                    <li>Speed Breakers</li>
+                    <li>Convex Mirrors</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="content">
+            <h5 class="content-title">Industrial Safety</h5>
+            <ul class="content-item">
+                <li>Safety Helmets</li>
+                <li>Reflective Jackets</li>
+                <li>Safety Shoes</li>
+                <li>Fire Safety Equipment</li>
+                <li>Warehouse Protection</li>
+                <li>Lockout/Tagout Systems</li>
+            </ul>
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-box">
+            <h3>Quick Links<i class="fa-solid fa-link"></i></h3>
+            <p><i class="fa-solid fa-play"></i>Home</p>
+            <p><i class="fa-solid fa-play"></i>About</p>
+            <p><i class="fa-solid fa-play"></i>Menu</p>
+            <p><i class="fa-solid fa-play"></i>Contact</p>
+        </div>
+        <div class="footer-box">
+            <p>We deliver reliable road safety, traffic management, and security solutions designed to improve safety,
+                efficiency, and compliance across infrastructure projects.</p>
+            <h3>
+                <p><i class="fa-brands fa-facebook"></i><i class="fa-brands fa-square-x-twitter"></i><i
+                        class="fa-brands fa-linkedin"></i><i class="fa-brands fa-youtube-shorts"></i></p>
+            </h3>
+        </div>
+        <div class="footer-box">
+            <h3>Contact<i class="fa-solid fa-user"></i></h3>
+            <p> Nashik, Maharashtra</p>
+            <p> +91 77560 52697</p>
+            <p>SiriSafety@in.com</p>
+        </div>
+    </footer>
+    <div class="copyright">
+        2026 siriSafety. All Rights Reserved.
+    </div>
+
+</body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
